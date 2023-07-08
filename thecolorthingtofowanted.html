@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>random color generator!!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .color-box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .color-code {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>random color generator!!</h1>
+    
+    <div class="color-box" id="colorBox"></div>
+    <div class="color-code" id="hexCode"></div>
+    <div class="color-code" id="rgbCode"></div>
+    
+    <button onclick="generateColor()">Generate Color</button>
+    
+    <script>
+        function generateColor() {
+            // Generate random RGB values
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+            
+            // Create the CSS color string
+            var color = "rgb(" + red + ", " + green + ", " + blue + ")";
+            
+            // Update the color box background
+            var colorBox = document.getElementById("colorBox");
+            colorBox.style.backgroundColor = color;
+            
+            // Update the hex color code
+            var hexCode = document.getElementById("hexCode");
+            hexCode.textContent = "Hex: #" + rgbToHex(red, green, blue);
+            
+            // Update the RGB color code
+            var rgbCode = document.getElementById("rgbCode");
+            rgbCode.textContent = "RGB: " + color;
+        }
+        
+        function rgbToHex(red, green, blue) {
+            var redHex = red.toString(16).padStart(2, "0");
+            var greenHex = green.toString(16).padStart(2, "0");
+            var blueHex = blue.toString(16).padStart(2, "0");
+            return redHex + greenHex + blueHex;
+        }
+    </script>
+</body>
+</html>
