@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Water Drinking Simulator</title>
+  <style>
+    /* Center the cup in the middle of the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Create an audio element for the drink sound
+    var drinkSound = new Audio("https://cdn.discordapp.com/attachments/833826690261844019/1127379499554701392/WATERSIM_DRINK.mp3");
+
+    function fillCup() {
+      var cup = document.getElementById("cup");
+      var audio = document.getElementById("fillSound");
+
+      // Change cup image to full cup
+      cup.src = "https://media.discordapp.net/attachments/833826690261844019/1127376664117116929/WATERSIM_FULLCUP.png";
+      
+      // Play the fill sound
+      audio.play();
+    }
+
+    function emptyCup() {
+      var cup = document.getElementById("cup");
+
+      // Change cup image to empty cup
+      cup.src = "https://media.discordapp.net/attachments/833826690261844019/1127376653123858545/WATERSIM_EMPTYCUP.png";
+
+      // Play the drink sound
+      drinkSound.play();
+    }
+  </script>
+
+  <img id="cup" src="https://media.discordapp.net/attachments/833826690261844019/1127376653123858545/WATERSIM_EMPTYCUP.png" onclick="fillCup()" ondblclick="emptyCup()" alt="Cup">
+
+  <!-- Embedding the fill sound -->
+  <audio id="fillSound" src="https://cdn.discordapp.com/attachments/833826690261844019/1127379490180431952/WATERSIM_POUR.mp3"></audio>
+</body>
+</html>
