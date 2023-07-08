@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun Super Mario Facts!</title>
+</head>
+<body>
+  <h1>Fun Super Mario Facts!</h1>
+
+  <div id="imageContainer"></div>
+
+  <button onclick="displayRandomImage()">Get a Mario Fact!</button>
+
+  <script>
+    // Array of image URLs
+    var imageArray = [
+      "https://cdn.discordapp.com/attachments/833826690261844019/1127231447107915807/image.png",
+      "https://cdn.discordapp.com/attachments/833826690261844019/1127232223012208640/image.png"
+      // Add more image URLs here
+    ];
+
+    // Array of rare image URLs
+    var rareImageArray = [
+      "https://cdn.discordapp.com/attachments/833826690261844019/1127230603729846322/VICTIM1.png",
+      "https://cdn.discordapp.com/attachments/833826690261844019/1127231135269785680/THETRUTH.png"
+      // Add more rare image URLs here
+    ];
+
+    // Array of video URLs
+    var videoArray = [
+      "https://www.youtube.com/embed/UB9SnG60q_M"
+      // Add more video URLs here
+    ];
+
+    // Function to display a random image or video
+    function displayRandomImage() {
+      var container = document.getElementById("imageContainer");
+      container.innerHTML = ''; // Clear previous content
+
+      var randomNumber = Math.random();
+
+      if (randomNumber < 0.05) { // 5% chance for the rare images
+        var randomIndex = Math.floor(Math.random() * rareImageArray.length);
+        var img = document.createElement("img");
+        img.src = rareImageArray[randomIndex];
+        container.appendChild(img);
+      } else if (randomNumber < 0.20) { // 15% chance for a video
+        var randomIndex = Math.floor(Math.random() * videoArray.length);
+        var iframe = document.createElement("iframe");
+        iframe.src = videoArray[randomIndex];
+        iframe.width = "560";
+        iframe.height = "315";
+        container.appendChild(iframe);
+      } else { // 80% chance for a regular image
+        var randomIndex = Math.floor(Math.random() * imageArray.length);
+        var img = document.createElement("img");
+        img.src = imageArray[randomIndex];
+        container.appendChild(img);
+      }
+    }
+  </script>
+</body>
+</html>
