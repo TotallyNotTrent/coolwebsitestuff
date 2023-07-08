@@ -14,7 +14,11 @@
     // Array of image URLs
     var imageArray = [
       "https://cdn.discordapp.com/attachments/833826690261844019/1127231447107915807/image.png",
-      "https://cdn.discordapp.com/attachments/833826690261844019/1127232223012208640/image.png"
+      "https://cdn.discordapp.com/attachments/833826690261844019/1127232223012208640/image.png",
+      "https://cdn.discordapp.com/attachments/833826690261844019/1127238690918367323/image.png",
+      "https://media.discordapp.net/attachments/825710979622895626/1127239307258777710/daisy_fun_fact.png",
+      "https://cdn.discordapp.com/attachments/825710979622895626/1127239708313919538/peach_fun_fact.png",
+      "https://media.discordapp.net/attachments/825710979622895626/1127240191661326378/toad_fun_fact.png"
       // Add more image URLs here
     ];
 
@@ -43,7 +47,7 @@
         var img = document.createElement("img");
         img.src = rareImageArray[randomIndex];
         container.appendChild(img);
-      } else if (randomNumber < 0.20) { // 15% chance for a video
+      } else if (randomNumber < 0.10) { // 15% chance for a video
         var randomIndex = Math.floor(Math.random() * videoArray.length);
         var iframe = document.createElement("iframe");
         iframe.src = videoArray[randomIndex];
