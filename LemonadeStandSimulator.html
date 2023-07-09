@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lemonade Stand Simulator</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: #ffd919;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ffd919;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .inventory {
+      display: inline-block;
+      margin: 10px;
+    }
+    
+    .funds {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lemonade Stand Simulator</h1>
+  
+  <div class="inventory">
+    <h2>Inventory</h2>
+    <p>Lemons: <span id="lemons">0</span></p>
+    <p>Sugar: <span id="sugar">0</span></p>
+    <p>Cups: <span id="cups">0</span></p>
+  </div>
+  
+  <div class="funds">
+    <p>Funds: $<span id="funds">100</span></p>
+    <p>Lemon Cost: $10</p>
+    <p>Sugar Cost: $5</p>
+    <p>Cup Cost: $2</p>
+  </div>
+  
+  <button onclick="buyLemons()">Buy Lemons</button>
+  <button onclick="buySugar()">Buy Sugar</button>
+  <button onclick="buyCups()">Buy Cups</button>
+  <button onclick="makeLemonade()">Make Lemonade</button>
+  <button onclick="sellLemonade()">Sell Lemonade</button>
+  
+  <script>
+    var lemons = 0;
+    var sugar = 0;
+    var cups = 0;
+    var lemonade = 0;
+    var funds = 100;
+    
+    function buyLemons() {
+      if (funds >= 10) {
+        lemons++;
+        funds -= 10;
+        document.getElementById("lemons").textContent = lemons;
+        document.getElementById("funds").textContent = funds;
+      } else {
+        alert("You don't have enough funds to buy lemons!");
+      }
+    }
+    
+    function buySugar() {
+      if (funds >= 5) {
+        sugar++;
+        funds -= 5;
+        document.getElementById("sugar").textContent = sugar;
+        document.getElementById("funds").textContent = funds;
+      } else {
+        alert("You don't have enough funds to buy sugar!");
+      }
+    }
+    
+    function buyCups() {
+      if (funds >= 2) {
+        cups++;
+        funds -= 2;
+        document.getElementById("cups").textContent = cups;
+        document.getElementById("funds").textContent = funds;
+      } else {
+        alert("You don't have enough funds to buy cups!");
+      }
+    }
+    
+    function makeLemonade() {
+      if (lemons > 0 && sugar > 0 && cups > 0) {
+        lemonade++;
+        lemons--;
+        sugar--;
+        cups--;
+        document.getElementById("lemons").textContent = lemons;
+        document.getElementById("sugar").textContent = sugar;
+        document.getElementById("cups").textContent = cups;
+      } else {
+        alert("You need lemons, sugar, and cups to make lemonade!");
+      }
+    }
+    
+    function sellLemonade() {
+      if (lemonade > 0) {
+        lemonade--;
+        funds += 5;
+        document.getElementById("funds").textContent = funds;
+      } else {
+        alert("You don't have any lemonade to sell!");
+      }
+    }
+  </script>
+</body>
+</html>
